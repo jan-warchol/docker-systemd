@@ -31,10 +31,10 @@ should probably use the stock `ubuntu` image instead.
 
 ## Setup
 
-Before you start your first `systemd` container, run the following command to
-set up your Docker host. It uses [special privileges](https://docs.docker.com/engine/reference/run/#/runtime-privilege-and-linux-capabilities)
-to create a cgroup hierarchy for `systemd`. We do this in a separate setup
-step so we can run `systemd` in unprivileged containers.
+If your Docker host doesn't use systemd itself, run the following command
+before you start your first `systemd` container. It uses [special privileges](https://docs.docker.com/engine/reference/run/#/runtime-privilege-and-linux-capabilities)
+to create a cgroup hierarchy for `systemd` on the host. We do this in a
+separate setup step so we can run `systemd` in unprivileged containers.
 
     docker run --rm --privileged -v /:/host solita/ubuntu-systemd setup
 
